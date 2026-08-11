@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+      font-family: 'Georgia', serif;
+      color: #3a3a3a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      animation: fadeIn 3s ease;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #b30059;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: beat 1.5s infinite;
+      color: #ff3366;
+      margin-top: 20px;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #5f5f5f;
+    }
+
+    /* --- INICIO DE LA SECCIÓN RESPONSIVA --- */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
+      .heart {
+        font-size: 2.5em;
+      }
+    }
+    /* --- FIN DE LA SECCIÓN RESPONSIVA --- */
+  </style>
+</head>
+<body>
+
+  <h1>Hola, Melody 🌸</h1>
+<p>
+    No sé exactamente qué pueda surgir entre nosotros, pero me gusta conocerte
+    poco a poco. Me gusta hablar contigo, compartir momentos y descubrir cada
+    vez un poquito más de ti.
+</p>
+
+<p>
+    No quiero apresurar las cosas ni ponerle un nombre a lo que estamos viviendo.
+    Solo quiero seguir conociéndote y dejar que todo fluya de manera natural.
+    Me gusta lo que está empezando entre nosotros y quién sabe, quizá pueda
+    convertirse en algo muy bonito. ❤️
+</p>
+  <div class="heart">❤️</div>
+
+  <footer>
+    Con cariño,<br>
+    alguien que piensa mucho en ti.
+  </footer>
+
+  <audio id="musicaDeFondo" loop>
+    <source src="señorita.mp3" type="audio/mpeg">
+   
+  </audio>
+
+  <script>
+    // Seleccionamos el body y el audio
+    const body = document.querySelector('body');
+    const audio = document.getElementById('musicaDeFondo');
+
+    // Creamos una función que se ejecutará una sola vez
+    const playMusic = () => {
+      audio.play();
+      // Removemos el event listener para que no intente reproducir la música de nuevo
+      body.removeEventListener('click', playMusic);
+      body.removeEventListener('touchstart', playMusic);
+    };
+
+    // Agregamos un event listener para el click (en computadoras)
+    body.addEventListener('click', playMusic);
+    // Agregamos un event listener para el touch (en móviles)
+    body.addEventListener('touchstart', playMusic);
+  </script>
+
+</body>
+</html>
